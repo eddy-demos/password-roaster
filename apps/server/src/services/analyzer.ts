@@ -107,12 +107,8 @@ export function analyze(password: string): AnalysisResult {
   const penalty = patternPenalty(matches);
   const entropy = Math.max(0, Number((naiveEntropy - penalty).toFixed(2)));
 
-  const crackTimeSeconds = Number(
-    result.crackTimesSeconds.offlineSlowHashing1e4PerSecond,
-  );
-  const crackTimeDisplay = String(
-    result.crackTimesDisplay.offlineSlowHashing1e4PerSecond,
-  );
+  const crackTimeSeconds = Number(result.crackTimesSeconds.offlineSlowHashing1e4PerSecond);
+  const crackTimeDisplay = String(result.crackTimesDisplay.offlineSlowHashing1e4PerSecond);
 
   // Pick the "top" pattern: longest matched sub-pattern by token length.
   const topPattern =

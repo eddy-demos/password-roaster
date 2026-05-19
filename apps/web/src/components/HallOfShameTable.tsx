@@ -51,7 +51,9 @@ export function HallOfShameTable({ items }: Props) {
   }, [items, sort]);
 
   function setKey(key: SortKey) {
-    setSort((s) => (s.key === key ? { key, dir: s.dir === "asc" ? "desc" : "asc" } : { key, dir: "asc" }));
+    setSort((s) =>
+      s.key === key ? { key, dir: s.dir === "asc" ? "desc" : "asc" } : { key, dir: "asc" },
+    );
   }
 
   return (
@@ -71,7 +73,11 @@ export function HallOfShameTable({ items }: Props) {
             <Th onClick={() => setKey("length")} active={sort.key === "length"} dir={sort.dir}>
               Length
             </Th>
-            <Th onClick={() => setKey("createdAt")} active={sort.key === "createdAt"} dir={sort.dir}>
+            <Th
+              onClick={() => setKey("createdAt")}
+              active={sort.key === "createdAt"}
+              dir={sort.dir}
+            >
               When
             </Th>
             <th className="px-4 py-3" />
@@ -84,7 +90,9 @@ export function HallOfShameTable({ items }: Props) {
               <tr key={r.id} className="border-t border-zinc-800 hover:bg-zinc-900/50">
                 <td className="px-4 py-2 font-mono text-zinc-200">{r.nickname ?? "—"}</td>
                 <td className="px-4 py-2">
-                  <span className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-xs ${meta.text} ${meta.bar}/30`}>
+                  <span
+                    className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-xs ${meta.text} ${meta.bar}/30`}
+                  >
                     {meta.emoji} {meta.label}
                   </span>
                 </td>

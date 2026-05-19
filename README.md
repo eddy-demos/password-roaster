@@ -37,28 +37,28 @@ Open <http://localhost:5173>.
 
 ## Scripts (root)
 
-| Command | Action |
-|---|---|
-| `pnpm dev` | Concurrent client + server with HMR |
-| `pnpm build` | Build server + client |
-| `pnpm start` | Run production server |
-| `pnpm test` | Vitest unit/integration |
-| `pnpm test:e2e` | Playwright e2e |
-| `pnpm db:migrate` | Apply Prisma migrations |
-| `pnpm db:seed` | Insert 50 seed roasts |
-| `pnpm lint` | ESLint |
-| `pnpm format` | Prettier |
+| Command           | Action                              |
+| ----------------- | ----------------------------------- |
+| `pnpm dev`        | Concurrent client + server with HMR |
+| `pnpm build`      | Build server + client               |
+| `pnpm start`      | Run production server               |
+| `pnpm test`       | Vitest unit/integration             |
+| `pnpm test:e2e`   | Playwright e2e                      |
+| `pnpm db:migrate` | Apply Prisma migrations             |
+| `pnpm db:seed`    | Insert 50 seed roasts               |
+| `pnpm lint`       | ESLint                              |
+| `pnpm format`     | Prettier                            |
 
 ## Environment variables
 
-| Var | Required | Default | Purpose |
-|---|---|---|---|
-| `DATABASE_URL` | yes | `file:./dev.db` | Prisma connection string |
-| `PORT` | no | `3001` | API port |
-| `VITE_API_URL` | yes | `http://localhost:3001` | Client → API base URL |
-| `RATE_LIMIT_MAX` | no | `30` | Roast requests per minute per IP |
-| `ARGON2_PEPPER` | no | unset | Enables optional dedup hashing if set |
-| `NODE_ENV` | no | `development` | |
+| Var              | Required | Default                 | Purpose                               |
+| ---------------- | -------- | ----------------------- | ------------------------------------- |
+| `DATABASE_URL`   | yes      | `file:./dev.db`         | Prisma connection string              |
+| `PORT`           | no       | `3001`                  | API port                              |
+| `VITE_API_URL`   | yes      | `http://localhost:3001` | Client → API base URL                 |
+| `RATE_LIMIT_MAX` | no       | `30`                    | Roast requests per minute per IP      |
+| `ARGON2_PEPPER`  | no       | unset                   | Enables optional dedup hashing if set |
+| `NODE_ENV`       | no       | `development`           |                                       |
 
 ## Privacy guarantees (the important part)
 
@@ -72,15 +72,15 @@ Open <http://localhost:5173>.
 
 Base path: `/api/v1`.
 
-| Method | Path | Notes |
-|---|---|---|
-| `POST` | `/roasts` | Analyze a password and create a roast. Returns the roast + a one-time `ownerToken`. |
-| `GET` | `/roasts` | Paginated list. Pass `ownedIds=a,b,c` to fetch your history; otherwise returns only public roasts. |
-| `GET` | `/roasts/:id` | Permalink fetch. |
-| `PATCH` | `/roasts/:id` | Mutate `nickname` or `isPublic`. Requires `X-Owner-Token`. |
-| `DELETE` | `/roasts/:id` | Delete. Requires `X-Owner-Token`. |
-| `GET` | `/leaderboard` | Top 50 worst public roasts by ascending entropy. 60s cache. |
-| `GET` | `/health` | Liveness probe. |
+| Method   | Path           | Notes                                                                                              |
+| -------- | -------------- | -------------------------------------------------------------------------------------------------- |
+| `POST`   | `/roasts`      | Analyze a password and create a roast. Returns the roast + a one-time `ownerToken`.                |
+| `GET`    | `/roasts`      | Paginated list. Pass `ownedIds=a,b,c` to fetch your history; otherwise returns only public roasts. |
+| `GET`    | `/roasts/:id`  | Permalink fetch.                                                                                   |
+| `PATCH`  | `/roasts/:id`  | Mutate `nickname` or `isPublic`. Requires `X-Owner-Token`.                                         |
+| `DELETE` | `/roasts/:id`  | Delete. Requires `X-Owner-Token`.                                                                  |
+| `GET`    | `/leaderboard` | Top 50 worst public roasts by ascending entropy. 60s cache.                                        |
+| `GET`    | `/health`      | Liveness probe.                                                                                    |
 
 ## Ownership without accounts
 

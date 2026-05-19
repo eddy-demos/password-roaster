@@ -11,10 +11,7 @@ export function Home() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(
-    password: string,
-    opts: { nickname?: string; isPublic: boolean },
-  ) {
+  async function handleSubmit(password: string, opts: { nickname?: string; isPublic: boolean }) {
     setError(null);
     setLoading(true);
     try {
@@ -50,13 +47,16 @@ export function Home() {
           The honest password strength meter.
         </h1>
         <p className="text-zinc-400">
-          Type a password. We'll evaluate it, roast it, and never store the plaintext. Just
-          the painful truth.
+          Type a password. We'll evaluate it, roast it, and never store the plaintext. Just the
+          painful truth.
         </p>
       </section>
       <PasswordInput onSubmit={handleSubmit} disabled={loading} />
       {error ? (
-        <div role="alert" className="rounded-lg border border-red-800 bg-red-950/50 p-4 text-red-200">
+        <div
+          role="alert"
+          className="rounded-lg border border-red-800 bg-red-950/50 p-4 text-red-200"
+        >
           {error}
         </div>
       ) : null}

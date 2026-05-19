@@ -43,8 +43,8 @@ export function History() {
     <div className="space-y-6">
       <h1 className="text-2xl font-bold tracking-tight">Your History</h1>
       <p className="text-sm text-zinc-400">
-        Stored locally on your device. Clear your browser data and they're gone from this view —
-        but if you marked any public, they remain on the hall of shame until you delete them.
+        Stored locally on your device. Clear your browser data and they're gone from this view — but
+        if you marked any public, they remain on the hall of shame until you delete them.
       </p>
       {loading ? <p className="text-zinc-500">Loading…</p> : null}
       {error ? <p className="text-red-300">{error}</p> : null}
@@ -53,12 +53,7 @@ export function History() {
       ) : null}
       <div className="space-y-6">
         {items.map((r) => (
-          <RoastCard
-            key={r.id}
-            roast={r}
-            onDelete={() => handleDelete(r.id)}
-            animate={false}
-          />
+          <RoastCard key={r.id} roast={r} onDelete={() => handleDelete(r.id)} animate={false} />
         ))}
       </div>
     </div>

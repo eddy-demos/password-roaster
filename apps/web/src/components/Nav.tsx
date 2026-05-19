@@ -15,9 +15,7 @@ export function Nav() {
           <span aria-hidden className="text-2xl">
             🔥
           </span>
-          <span className="font-mono text-sm font-bold tracking-tight">
-            honest-password-meter
-          </span>
+          <span className="font-mono text-sm font-bold tracking-tight">honest-password-meter</span>
         </NavLink>
         <nav className="flex items-center gap-1 text-sm">
           {links.map((l) => (

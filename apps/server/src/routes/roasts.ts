@@ -1,11 +1,6 @@
 import { Router } from "express";
 import { nanoid } from "nanoid";
-import {
-  createRoastInput,
-  listRoastsQuery,
-  patchRoastInput,
-  type RoastDTO,
-} from "@hpm/shared";
+import { createRoastInput, listRoastsQuery, patchRoastInput, type RoastDTO } from "@hpm/shared";
 import { prisma } from "../db.js";
 import { analyze } from "../services/analyzer.js";
 import { generateRoast } from "../services/roastEngine.js";

@@ -51,9 +51,7 @@ export function RoastCard({ roast, onDelete, showShare = true, animate = true }:
               {meta.emoji}
             </span>
             <div>
-              <div className={`text-xs uppercase tracking-widest ${meta.text}`}>
-                {meta.label}
-              </div>
+              <div className={`text-xs uppercase tracking-widest ${meta.text}`}>{meta.label}</div>
               <div className="text-sm text-zinc-400">
                 {roast.crackTimeDisplay} to crack &middot; {roast.entropy.toFixed(1)} bits
               </div>
@@ -122,10 +120,12 @@ export function RoastCard({ roast, onDelete, showShare = true, animate = true }:
             <Stat label="Crack time" value={roast.crackTimeDisplay} />
             <Stat
               label="Classes"
-              value={Object.entries(roast.charClasses)
-                .filter(([, v]) => v)
-                .map(([k]) => k)
-                .join(", ") || "none"}
+              value={
+                Object.entries(roast.charClasses)
+                  .filter(([, v]) => v)
+                  .map(([k]) => k)
+                  .join(", ") || "none"
+              }
             />
           </dl>
         ) : null}

@@ -27,17 +27,17 @@ export function About() {
       <section>
         <h2 className="mt-6 text-xl font-semibold text-zinc-100">Ownership without accounts</h2>
         <p>
-          When you create a roast, the server returns a single owner token. Your browser keeps
-          it in <code className="rounded bg-zinc-900 px-1">localStorage</code>. To edit or delete
-          a roast later, your browser presents the token. No accounts, no passwords (for the
-          site itself), no email, no tracking.
+          When you create a roast, the server returns a single owner token. Your browser keeps it in{" "}
+          <code className="rounded bg-zinc-900 px-1">localStorage</code>. To edit or delete a roast
+          later, your browser presents the token. No accounts, no passwords (for the site itself),
+          no email, no tracking.
         </p>
       </section>
       <section>
         <h2 className="mt-6 text-xl font-semibold text-zinc-100">A note on the jokes</h2>
         <p>
-          The roasts target the password choice — never the person. We punch up at lazy
-          credentials, not at users.
+          The roasts target the password choice — never the person. We punch up at lazy credentials,
+          not at users.
         </p>
       </section>
     </article>
