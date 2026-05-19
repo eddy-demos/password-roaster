@@ -1,0 +1,14 @@
+node_modules
+dist
+.env
+*.log
+.DS_Store
+.turbo
+.vite
+coverage
+playwright-report
+test-results
+apps/server/prisma/*.db
+apps/server/prisma/*.db-journal
+apps/server/dev.db
+apps/server/dev.db-journal

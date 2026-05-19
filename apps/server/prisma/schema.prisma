@@ -1,0 +1,40 @@
+// Prisma schema for Honest Password Meter.
+// Provider is SQLite for dev. Swap to "postgresql" in prod.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// NOTE: SQLite doesn't support native enums. The Severity values
+// (PATHETIC | WEAK | MID | DECENT | FORTRESS) are validated in app code.
+
+model Roast {
+  id               String   @id
+  ownerToken       String   // server-issued token client must present for PATCH/DELETE
+  passwordHash     String?  // optional argon2id dedup hash, only if pepper is configured
+  length           Int
+  entropy          Float
+  score            Int
+  crackTimeSeconds Float
+  crackTimeDisplay String
+  // SQLite has no native JSON; store as text and parse in app code.
+  charClasses      String
+  topPattern       String
+  // SQLite has no enum either; store as string but constrained at app layer.
+  severity         String
+  roastText        String
+  nickname         String?
+  isPublic         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([severity])
+  @@index([entropy])
+  @@index([createdAt])
+  @@index([isPublic])
+}
