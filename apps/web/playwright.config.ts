@@ -7,13 +7,13 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: "html",
   use: {
-    baseURL: "http://localhost:5173",
+    baseURL: "http://localhost:5273",
     trace: "on-first-retry",
   },
   webServer: {
     command: "pnpm dev",
     cwd: "../..",
-    url: "http://localhost:5173",
+    url: "http://localhost:5273",
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,
   },
